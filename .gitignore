@@ -2,3 +2,6 @@ node_modules/
 dist/
 *.tgz
 .DS_Store
+
+# Local SE project workspace (not published)
+PromptEnhacerProject/

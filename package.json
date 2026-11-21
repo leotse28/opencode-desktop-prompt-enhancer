@@ -1,6 +1,6 @@
 {
   "name": "opencode-desktop-prompt-enhancer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "OpenCode Desktop GUI plugin: /enhance rewrites the current composer draft with the current model.",
   "keywords": [
