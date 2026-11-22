@@ -20,16 +20,37 @@ OpenCode **Desktop** 的 GUI 插件(实验性通道):在会话输入框里把随
 - OpenCode Desktop **2.2.6**(桌面端运行时提供 `@opencode/plugin/gui`,类型按 2.2.6 核验过)。
 - GUI 插件通道在 2.2 系列仍标为 **experimental**,个别版本间形态可能变;构建/挂载按本机版本。
 
-## 构建与挂载
+## 安装
+
+### 方式一：从 GitHub 直接安装（推荐，含预构建产物）
 
 ```sh
+opencode plugin add github:leotse28/opencode-desktop-prompt-enhancer
+```
+
+或直接写进**全局** `~/.config/opencode/opencode.json`（Desktop 只读这个文件）：
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": ["github:leotse28/opencode-desktop-prompt-enhancer"]
+}
+```
+
+> 部分旧版 OpenCode V2 对 `github:` 规格支持不稳定；若安装失败，用方式二。
+
+### 方式二：从源码构建
+
+```sh
+git clone https://github.com/leotse28/opencode-desktop-prompt-enhancer.git
+cd opencode-desktop-prompt-enhancer
 npm install       # 装构建依赖
 npm run typecheck # 类型核查
 npm run build     # 产出 dist/gui-experimental.cjs(单文件 CommonJS,等 vite gui() 预设)
 # 改源码后:npm run dev (vite build --watch) —— 按文档,每次重建时 GUI 在各窗口重载
 ```
 
-把插件目录加进**全局** `~/.config/opencode/opencode.json` 的 `plugins` 数组(Desktop 从全局 config 读 GUI 插件;TUI 插件才走 `cli.json`):
+然后把克隆目录的**绝对路径**加进全局 `~/.config/opencode/opencode.json` 的 `plugins` 数组:
 
 ```jsonc
 { "plugins": ["C:/Users/BY/OpencodeProjects/opencode-desktop-prompt-enhancer"] }
